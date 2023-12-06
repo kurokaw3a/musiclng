@@ -1,0 +1,239 @@
+
+.container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.bg{
+    background: rgba(0, 0, 0, 0.521);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(28, 28, 28);
+    margin-top: 80px;
+}
+.block{
+    width: 400px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media(max-width:450px){
+     width: 350px;
+    }
+    @media(max-width:391px){
+     width: 320px;
+    }
+}
+.image{
+    border-radius: 5px;
+    position: relative;
+    bottom: 100px;
+    width: 400px;
+    height: 350px;
+    user-select: none;
+    pointer-events: none;
+    @media(max-width:450px) {
+        width: 350px;
+    }
+    @media(max-width:391px) {
+        width: 320px;
+        height: 320px;
+    }
+    @media(max-width:376px) {
+        width: 300px;
+        height: 300px;
+    }
+}
+.titleBlock{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    position: relative;
+    color: rgb(228, 228, 228);
+    bottom: 50px;
+}
+.rangeBlock{
+    position: relative;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: rgb(228, 228, 228);
+    user-select: none;
+}
+.time{
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.range{
+    width: 400px;
+    accent-color: gray;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover{
+     accent-color: rgb(113, 113, 113);
+    }
+    @media(max-width:450px){
+        width: 350px;
+       }
+       @media(max-width:391px){
+        width: 320px;
+       }
+}
+
+.controlsBlock{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.controls{
+    cursor: pointer;
+    width: 70px;
+    border-radius: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    &:hover{
+        background: rgba(0, 0, 0, 0.158);
+    }
+    &:active{
+        background: rgba(43, 43, 43, 0.158);
+    }
+}
+.controlsIconBack{
+    pointer-events: none;
+    user-select: none;
+    height: 40px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+.controlsIconPlay{
+    width: 40px;
+    transform: rotate(90deg);
+    user-select: none;
+    transition: 0.3s;
+    pointer-events: none;
+}
+.controlsIconPause{
+    pointer-events: none;
+    width: 50px;
+    user-select: none;
+    transition: 0.3s;
+}
+.controlsIconNext{
+    pointer-events: none;
+    width: 40px;
+    transform: rotate(180deg);
+    user-select: none;
+}
+.controlsIcon{
+    pointer-events: none;
+    width: 40px;
+    user-select: none;
+}
+.volumeBlock{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 20px;
+ margin-top: 10px;
+}
+.speakerIcon{
+ width: 25px;
+ height: 25px;
+ user-select: none;
+ pointer-events: none;
+}
+.speakerActive{
+ display: flex;
+ align-items: center;
+}
+.speakerVolumeDown{
+ color: gray;
+ font-size: 11px;
+ font-weight: 700;
+ position: absolute;
+ margin-left: 22px;
+ margin-bottom: 2px;
+ user-select: none;
+ pointer-events: none;
+}
+.speakerVolumeUp{
+    color: gray;
+    font-weight: 600;
+    margin-left: 26px;
+    margin-bottom: 4px;
+    font-size: 13px;
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+}
+.speakerVolumeMax{
+    font-size: 15px;
+    margin-bottom: 3px;
+    margin-left: 30px;
+    color: gray;
+    position: absolute;
+    user-select: none;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.volumeRange{
+    height: 8px;
+    width: 300px;
+    border-radius: 5px;
+    appearance: none;
+    overflow: hidden;
+    outline: none;
+    border: 0.5px solid;
+    cursor: pointer;
+    @media(max-width:450px){
+        width: 250px;
+       }
+       @media(max-width:391px){
+        width: 220px;
+       }
+}
+.volumeRange::-webkit-slider-thumb{
+    width: 1px;
+    appearance: none;
+    height: 8px;
+    background: gray;
+    box-shadow: -185px 0 0 185px gray;
+    border-radius: 5px;
+}
+.backIcon{
+ width: 50px;
+ margin: 10px;
+ cursor: pointer;
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ @media(max-width:376px){
+    display: none;
+}
+}
+.backIcon2{
+ width: 40px;
+ cursor: pointer;
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ display: none;
+ @media(max-width:376px){
+    display: block;
+}
+}

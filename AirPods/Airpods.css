@@ -1,0 +1,62 @@
+.container{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: end;
+}
+
+.pods{
+    animation: show 0.5s ease-in-out;
+    position: fixed;
+    top: 300px;
+}
+.close{
+    animation: close 0.5s ease-in-out;
+    position: fixed;
+    top: 900px;
+}
+.show-button{
+ background: rgb(102, 102, 102);
+ border: none;
+ border-radius: 5px;
+ color: white;
+ font-weight: 600;
+ text-shadow: 0px 0px 10px rgb(205, 205, 205);
+ font-size: 30px;
+ position: relative;
+ bottom: 500px;
+ padding: 0px 30px 3px 30px;
+ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ cursor: pointer;
+ transition: 0.3s;
+ &:hover{
+ background: rgb(63, 63, 63);
+}
+&:active{
+    background: rgb(63, 63, 63);
+}
+}
+
+@keyframes show {
+    from{
+        position: fixed;
+        top: 900px;
+        opacity: 0;
+    }
+    to {
+        top: 300px;
+        position: fixed;
+        opacity: 1;
+    }
+}
+
+@keyframes close {
+    from{
+        opacity: 1;
+        top: 300px;
+    }
+    to {
+        top: 900px;
+        opacity: 0;
+    }
+}
