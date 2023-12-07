@@ -1,6 +1,34 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ApiFetch } from "../api/ApiFetch";
 
+
+
+export const getAccessToken = createAsyncThunk(
+  'get/token',
+  async(_,{rejectWithValue})=>{
+    const CLIENT_ID = '2b2212f7c19a4b9f89596487456eca6f';
+    const CLIENT_SECRET = 'c6a03071c1994efe9b0733a4a08660a5';
+  try {
+    const params = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`,
+    };
+    const response = await fetch(
+      'https://accounts.spotify.com/api/token',
+      params,
+    );
+    const token = await response.json();
+    localStorage.setItem('client_acs', token.access_token);
+    return {token:token.access_token};
+  } catch (error) {
+    rejectWithValue(error.message)
+  }
+})
+
+
 export const getSearchSong = createAsyncThunk(
     'get/search', 
     async(props, {rejectWithValue})=>{
