@@ -69,14 +69,18 @@ const Player = ({variant}) => {
   },[])
 
   const navigate= useNavigate()
+  let likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || []
 
   const navToBack = ()=>{
-  navigate(-1)
+    if(likedSongs?.length <= 0){
+      navigate('/')
+    }else{
+      navigate(-1)
+    }
    audioRef.current.pause()
    clearInterval(intervalRef.current)
   }
  
-  let likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || []
   const [isLiked,setIsLiked] = useState(localStorage.getItem(id))
   const likeSong = ()=>{
     localStorage.setItem(id,true)
@@ -93,8 +97,8 @@ const Player = ({variant}) => {
 
   return (
     <div className={styles.container}>
-      <img onClick={navToBack} className={styles.backIcon} src='https://cdn-icons-png.flaticon.com/512/3114/3114883.png' alt='error'/>
-      <img onClick={navToBack} className={styles.backIcon2} src='https://static.thenounproject.com/png/1394897-200.png' alt='error'/>
+      <img title='back' onClick={navToBack} className={styles.backIcon} src='https://cdn-icons-png.flaticon.com/512/3114/3114883.png' alt='error'/>
+      <img title='back' onClick={navToBack} className={styles.backIcon2} src='https://static.thenounproject.com/png/1394897-200.png' alt='error'/>
       {currentSongStatus === 'pending' && <Loader/>}
       {currentSongStatus === 'success' && 
       <div className={styles.bg}>
@@ -115,19 +119,19 @@ const Player = ({variant}) => {
             {variant === "albums" ?
             <div className={styles.controls}>
             <img className={styles.controlsIconBack} src={playerIcons.nextIcon} alt='error'/>
-            </div> : <div className={styles.controls}>
+            </div> : <div title='on spotify' className={styles.controls}>
               <a target='blank' href={currentSong?.spotifyUrl}>
             <img className={styles.controlsIcon} src={playerIcons.spotifyIcon} alt='error'/>
               </a>
             </div>
             }
-            <div onClick={songHandler} className={styles.controls}>
+            <div title={isPlaying ? "stop" : "play"} onClick={songHandler} className={styles.controls}>
             <img className={isPlaying ? styles.controlsIconPause : styles.controlsIconPlay} src={isPlaying ? playerIcons.pauseIcon : playerIcons.playIcon} alt='error'/>
             </div>
             {variant === 'albums' ?
             <div className={styles.controls}>
             <img className={styles.controlsIconNext} src={playerIcons.nextIcon} alt='error'/>
-            </div> : <div onClick={likeSong} className={styles.controls}>
+            </div> : <div title={!isLiked ? "like" :"dislike"} onClick={likeSong} className={styles.controls}>
             <img className={styles.controlsIcon} src={!isLiked ? playerIcons.likeIconTransparent : playerIcons.likeIcon} alt='error'/>
             </div>
             }

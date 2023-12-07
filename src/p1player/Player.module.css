@@ -71,9 +71,14 @@
 
 .range{
     width: 400px;
-    accent-color: gray;
+    height: 8px;
+    border-radius: 5px;
+    appearance: none;
+    overflow: hidden;
+    outline: none;
+    border: 0.5px solid;
     cursor: pointer;
-    transition: 0.2s;
+    background: rgb(234, 234, 234);
     &:hover{
      accent-color: rgb(113, 113, 113);
     }
@@ -84,7 +89,14 @@
         width: 320px;
        }
 }
-
+.range::-webkit-slider-thumb{
+    width: 1px;
+    appearance: none;
+    height: 8px;
+    background: gray;
+    box-shadow: -199px 0 0 199px gray;
+    border-radius: 5px;
+}
 .controlsBlock{
   display: flex;
   align-items: center;
@@ -114,9 +126,11 @@
     height: 40px;
     border-radius: 50px;
     transition: 0.3s;
+    -webkit-user-select: none;
 }
 .controlsIconPlay{
     width: 40px;
+    -webkit-user-select: none;
     transform: rotate(90deg);
     user-select: none;
     transition: 0.3s;
@@ -124,6 +138,7 @@
 }
 .controlsIconPause{
     pointer-events: none;
+    -webkit-user-select: none;
     width: 50px;
     user-select: none;
     transition: 0.3s;
@@ -133,9 +148,11 @@
     width: 40px;
     transform: rotate(180deg);
     user-select: none;
+    -webkit-user-select: none;
 }
 .controlsIcon{
     pointer-events: none;
+    -webkit-user-select: none;
     width: 40px;
     user-select: none;
 }

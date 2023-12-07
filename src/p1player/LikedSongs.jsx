@@ -13,10 +13,10 @@ const LikedSongs = () => {
     }
     return (
         <div className={styles.container}>
-            <img onClick={navToMain} className={styles.backIcon} src='https://cdn-icons-png.flaticon.com/512/3114/3114883.png' alt='error'/>
+            <img title='back' onClick={navToMain} className={styles.backIcon} src='https://cdn-icons-png.flaticon.com/512/3114/3114883.png' alt='error'/>
             <div className={styles.likedSongsBlock}>
                 {likedSongs?.map((el)=>(
-                <div className={styles.likedSongBlock}>
+                <div key={el.id} className={styles.likedSongBlock}>
                     <div onClick={()=>navToSong(el.id)} className={styles.imgBlock}>
                 <img className={styles.img} src={el.img} alt='error'/>
                     </div>
