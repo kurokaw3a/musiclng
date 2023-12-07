@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 import App from './App';
 import { store } from './store';
 import { BrowserRouter } from 'react-router-dom';
-import { getAccessToken } from './api/ApiFetch';
+import { injectStore } from './api/ApiFetch';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-getAccessToken()
+injectStore(store)
 root.render(
   <Provider store={store}>
   <BrowserRouter>
