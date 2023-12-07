@@ -11,6 +11,11 @@ searchStatus:null,
 export const PlayerSlice = createSlice({
   name: 'player',
   initialState,
+  reducers:{
+   clearResult(state){
+   state.searchResult = []
+  }
+  },
   extraReducers:(builder)=>{
     builder
     .addCase(getSearchSong.pending, (state)=>{
