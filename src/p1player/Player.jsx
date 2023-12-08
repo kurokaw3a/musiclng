@@ -72,10 +72,10 @@ const Player = ({variant}) => {
   let likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || []
 
   const navToBack = ()=>{
-    if(likedSongs?.length <= 0){
-      navigate('/')
+    if(variant!== 'albums'){
+     navigate(-1)
     }else{
-      navigate(-1)
+     navigate('/likedSongs')
     }
    audioRef.current.pause()
    clearInterval(intervalRef.current)
@@ -95,6 +95,25 @@ const Player = ({variant}) => {
     }
   }
 
+  const nextSong = (index)=>{
+    if(index + 1 < likedSongs.length){
+      audioRef.current.pause()
+      clearInterval(intervalRef.current)
+      setTrackProgress(0)
+      setIsPlaying(false)
+      navigate(`/likedSongs/${likedSongs[index + 1].id}`)
+    }
+  }
+  const prevSong = (index)=>{
+    if(index !== 0){
+      audioRef.current.pause()
+      clearInterval(intervalRef.current)
+      setTrackProgress(0)
+      setIsPlaying(false)
+      navigate(`/likedSongs/${likedSongs[index - 1].id}`)
+    }
+  }
+
   return (
     <div className={styles.container}>
       <img title='back' onClick={navToBack} className={styles.backIcon} src='https://cdn-icons-png.flaticon.com/512/3114/3114883.png' alt='error'/>
@@ -102,6 +121,7 @@ const Player = ({variant}) => {
       {currentSongStatus === 'pending' && <Loader/>}
       {currentSongStatus === 'success' && 
       <div className={styles.bg}>
+        {variant !=='albums' ? 
         <div className={styles.block}>
           <img className={styles.image} src={currentSong?.img || 'https://play-lh.googleusercontent.com/QovZ-E3Uxm4EvjacN-Cv1LnjEv-x5SqFFB5BbhGIwXI_KorjFhEHahRZcXFC6P40Xg'} alt='error' />
           <div className={styles.titleBlock}>
@@ -153,10 +173,55 @@ const Player = ({variant}) => {
             </div>
           </div>
         </div>
+         : likedSongs.map((el, i)=>(
+          el.id === id && 
+          <div className={styles.block}>
+         <img className={styles.image} src={el?.img || 'https://play-lh.googleusercontent.com/QovZ-E3Uxm4EvjacN-Cv1LnjEv-x5SqFFB5BbhGIwXI_KorjFhEHahRZcXFC6P40Xg'} alt='error' />
+         <div className={styles.titleBlock}>
+           <h1>{el?.name}</h1>
+           <h2>{el?.author}</h2>
+         </div>
+         <div className={styles.rangeBlock}>
+           <div className={styles.time}>
+             <p>{`00:${trackProgress < 10 ? 0 : ''}${trackProgress}` || "00:00"}</p>
+             <p>30</p>
+           </div>
+           <input className={styles.range} type='range' max='30' onClickCapture={progressHandler} onChange={progressHandler} value={trackProgress}/>
+         </div>
+         <div className={styles.controlsBlock}>
+           <div onClick={()=>prevSong(i)} className={styles.controls}>
+           <img className={styles.controlsIconBack} src={playerIcons.nextIcon} alt='error'/>
+           </div>
+           <div title={isPlaying ? "stop" : "play"} onClick={songHandler} className={styles.controls}>
+           <img className={isPlaying ? styles.controlsIconPause : styles.controlsIconPlay} src={isPlaying ? playerIcons.pauseIcon : playerIcons.playIcon} alt='error'/>
+           </div>
+           <div onClick={()=>nextSong(i)} className={styles.controls}>
+           <img className={styles.controlsIconNext} src={playerIcons.nextIcon} alt='error'/>
+           </div> 
+         </div>
+         <div className={styles.volumeBlock}>
+           <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error'/>
+           <input className={styles.volumeRange} type='range' max='100' onChange={volumeHandler} value={trackVolume}/>
+           <div className={styles.speakerActive}>
+           <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error'/>
+           {trackVolume <= 0 ? '' : 
+           <p className={styles.speakerVolumeDown}>)</p>
+          }
+           {trackVolume > 40 && 
+           <p className={styles.speakerVolumeUp}>)</p>
+          }
+           {trackVolume > 75 && 
+           <p className={styles.speakerVolumeMax}>)</p>
+           }
+           </div>
+         </div>
+       </div>
+         ))
+       }
       </div>
-  }
+    }
     </div>
-  )
+    )
 };
 
 export default Player;

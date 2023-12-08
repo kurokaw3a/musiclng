@@ -9,6 +9,7 @@ const PlayerRoutes = () => {
             <Route path="/" element={<Main/>}/>
             <Route path=":id" element={<Player/>}/>
             <Route path="likedSongs" element={<LikedSongs/>}/>
+            <Route path="likedSongs/:id" element={<Player variant='albums'/>}/>
         </Routes>
     );
 };
