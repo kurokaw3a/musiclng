@@ -9,7 +9,7 @@ const LikedSongs = () => {
     }
     const [likedSongs] = useState(JSON.parse(localStorage.getItem('likedSongs')) || [])
     const navToSong = (id)=>{
-     navigate(`/${id}`)
+     navigate(`${id}`)
     }
     return (
         <div className={styles.container}>
