@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { playerIcons } from './icons/icons';
 import { useEffect, useRef, useState } from 'react';
 import { getCurrentSong } from '../store/PlayerActions';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Loader from './Loader';
 
 const Player = ({variant}) => {
@@ -72,7 +72,7 @@ const Player = ({variant}) => {
   let likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || []
 
   const navToBack = ()=>{
-    if(variant!== 'albums'){
+    if(variant !== 'albums'){
      navigate(-1)
     }else{
      navigate('/likedSongs')
@@ -102,6 +102,12 @@ const Player = ({variant}) => {
       setTrackProgress(0)
       setIsPlaying(false)
       navigate(`/likedSongs/${likedSongs[index + 1].id}`)
+    }else{
+      audioRef.current.pause()
+      clearInterval(intervalRef.current)
+      setTrackProgress(0)
+      setIsPlaying(false)
+     navigate(`/likedSongs/${likedSongs[0].id}`)
     }
   }
   const prevSong = (index)=>{
@@ -111,9 +117,21 @@ const Player = ({variant}) => {
       setTrackProgress(0)
       setIsPlaying(false)
       navigate(`/likedSongs/${likedSongs[index - 1].id}`)
+    }else{
+      audioRef.current.pause()
+     navigate(`/likedSongs/${likedSongs[likedSongs?.length - 1].id}`)
+     clearInterval(intervalRef.current)
+     setTrackProgress(0)
+     setIsPlaying(false)
     }
   }
-
+  const location = useLocation()
+  useEffect(()=>{
+    clearInterval(intervalRef.current)
+    setTrackProgress(0)
+    setIsPlaying(false)
+    audioRef.current.pause()
+  },[location.pathname])
   return (
     <div className={styles.container}>
       <img title='back' onClick={navToBack} className={styles.backIcon} src='https://cdn-icons-png.flaticon.com/512/3114/3114883.png' alt='error'/>
