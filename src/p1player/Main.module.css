@@ -3,21 +3,29 @@
  justify-content: center;
  flex-direction: column;
  align-items: center;
- margin-top: 50px;
- gap: 10px;
+ gap: 30px;
  color: white;
 }
 .formSearch{
     display: flex;
     justify-content: center;
     gap: 0px;
+    background: rgba(0, 0, 0, 0.486);
+    padding: 0px 10px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
+    @media(max-width:450px){
+        padding: 0px 0px 10px 0px;
+    }
+    @media(max-width:391px){
+        padding: 0px 0px 10px 0px;
+        border-radius: 0;
+    }
 }
 .searchInput{
     font-size: 35px;
     outline: none;
     background: none;
     border: none;
-    border-bottom: 1px solid white;
     color: white;
     @media(max-width:450px){
      font-size: 30px;
@@ -29,6 +37,9 @@
 }
 .resultBlock{
     z-index: 2;
+    position: absolute;
+    top: 1;
+    bottom: 0;
     background: rgba(0, 0, 0, 0.304);
     width: 600px;
     overflow-y: scroll;

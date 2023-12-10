@@ -1,4 +1,6 @@
-
+*{
+    -webkit-tap-highlight-color: transparent;
+}
 .container {
     display: flex;
     height: 100vh;
@@ -128,6 +130,7 @@
     &:active{
         background: rgba(43, 43, 43, 0.158);
     }
+
 }
 .controlsLike{
     position: absolute;
@@ -201,33 +204,36 @@
  align-items: center;
 }
 .speakerVolumeDown{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
     margin-bottom: 1px;
     margin-left: 22px;
-    font-size: 10px;
-    font-weight: 700;
+    font-size: 9px;
+    font-weight: 600;
     user-select: none;
     color: gray;
     pointer-events: none;
 }
 .speakerVolumeUp{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
-    margin-bottom: 3px;
+    margin-bottom: 1px;
     margin-left: 26px;
     color: gray;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 600;
     user-select: none;
     pointer-events: none;
 }
 .speakerVolumeMax{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     margin-left: 31px;
-    font-size: 16px;
+    font-size: 15px;
     color: gray;
     user-select: none;
-    font-weight: 700;
+    font-weight: 600;
     pointer-events: none;
 }
 

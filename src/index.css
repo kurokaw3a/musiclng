@@ -7,4 +7,13 @@
 
 body{
     background: rgb(49, 49, 49);
+    &::-webkit-scrollbar{
+        width: 3px;
+       }
+       &::-webkit-scrollbar-track{
+        background: rgb(170, 170, 170);
+       }
+       &::-webkit-scrollbar-thumb{
+        background-color: rgb(0, 0, 0);    
+      }
 }
