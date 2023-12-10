@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import styles from './Player.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { playerIcons } from './icons/icons';
@@ -22,6 +23,7 @@ const Player = ({variant}) => {
 
    const [trackProgress,setTrackProgress] = useState(0)
    const [trackVolume,setTrackVolume] = useState(50)
+   const [trackDuration,setTrackDuration] = useState(30)
    
    const audioRef = useRef(new Audio(currentSong?.url))
    const intervalRef = useRef()
@@ -33,28 +35,32 @@ const Player = ({variant}) => {
           if(audioRef.current.ended){
              setIsPlaying(false)
              setTrackProgress(0)
-          }else{
-            setTrackProgress(audioRef.current.currentTime.toFixed())
-          }
-        },1000)
-      }
-   useEffect(()=>{
-   if(isPlaying && audioRef.current){
-       audioRef.current.src = currentSong?.url
-       audioRef.current.volume = trackVolume / 100
-       audioRef.current.play()
-       audioRef.current.currentTime = trackProgress
-       startTimer()
-  }else{
-    clearInterval(intervalRef.current)
-    audioRef.current.pause()
-  }
+             setTrackDuration(30)
+            }else{
+              setTrackProgress(audioRef.current.currentTime.toFixed())
+              setTrackDuration(30 - audioRef.current.currentTime.toFixed())
+            }
+          },1000)
+        }
+        useEffect(()=>{
+          if(isPlaying && audioRef.current){
+            audioRef.current.src = currentSong?.url
+          audioRef.current.volume = trackVolume / 100
+          audioRef.current.play()
+          audioRef.current.currentTime = trackProgress
+          startTimer()
+        }else{
+          clearInterval(intervalRef.current)
+          audioRef.current.pause()
+        }
   },[isPlaying])
 
   const progressHandler = (event)=>{
     audioRef.current.currentTime = event.target.value
     setTrackProgress(event.target.value)
+    setTrackDuration(30-event.target.value)
  }
+ console.log(trackProgress);
  const volumeHandler = (event)=>{
  setTrackVolume(event.target.value)
  audioRef.current.volume  = trackVolume / 100
@@ -65,6 +71,7 @@ const Player = ({variant}) => {
    audioRef.current.pause()
    clearInterval(intervalRef.current)
    setTrackProgress(0)
+   setTrackDuration(30)
   }
   },[])
 
@@ -100,12 +107,14 @@ const Player = ({variant}) => {
       audioRef.current.pause()
       clearInterval(intervalRef.current)
       setTrackProgress(0)
+      setTrackDuration(30)
       setIsPlaying(false)
       navigate(`/likedSongs/${likedSongs[index + 1].id}`)
     }else{
       audioRef.current.pause()
       clearInterval(intervalRef.current)
       setTrackProgress(0)
+      setTrackDuration(30)
       setIsPlaying(false)
      navigate(`/likedSongs/${likedSongs[0].id}`)
     }
@@ -115,6 +124,7 @@ const Player = ({variant}) => {
       audioRef.current.pause()
       clearInterval(intervalRef.current)
       setTrackProgress(0)
+      setTrackDuration(30)
       setIsPlaying(false)
       navigate(`/likedSongs/${likedSongs[index - 1].id}`)
     }else{
@@ -122,6 +132,7 @@ const Player = ({variant}) => {
      navigate(`/likedSongs/${likedSongs[likedSongs?.length - 1].id}`)
      clearInterval(intervalRef.current)
      setTrackProgress(0)
+     setTrackDuration(30)
      setIsPlaying(false)
     }
   }
@@ -129,6 +140,7 @@ const Player = ({variant}) => {
   useEffect(()=>{
     clearInterval(intervalRef.current)
     setTrackProgress(0)
+    setTrackDuration(30)
     setIsPlaying(false)
     audioRef.current.pause()
   },[location.pathname])
@@ -148,8 +160,8 @@ const Player = ({variant}) => {
           </div>
           <div className={styles.rangeBlock}>
             <div className={styles.time}>
-              <p>{`00:${trackProgress < 10 ? 0 : ''}${trackProgress}` || "00:00"}</p>
-              <p>30</p>
+              <p>{`0:${trackProgress < 10 ? 0 : ''}${trackProgress}` || "0:00"}</p>
+              <p>- 0:{trackDuration}</p>
             </div>
             <input className={styles.range} type='range' max='30' onClickCapture={progressHandler} onChange={progressHandler} value={trackProgress}/>
           </div>
@@ -201,8 +213,8 @@ const Player = ({variant}) => {
          </div>
          <div className={styles.rangeBlock}>
            <div className={styles.time}>
-             <p>{`00:${trackProgress < 10 ? 0 : ''}${trackProgress}` || "00:00"}</p>
-             <p>30</p>
+             <p>{`0:${trackProgress < 10 ? 0 : ''}${trackProgress}` || "0:00"}</p>
+             <p>- 0:{trackDuration}</p>
            </div>
            <input className={styles.range} type='range' max='30' onClickCapture={progressHandler} onChange={progressHandler} value={trackProgress}/>
          </div>

@@ -201,33 +201,33 @@
  align-items: center;
 }
 .speakerVolumeDown{
- color: gray;
- font-size: 11px;
- font-weight: 700;
- position: absolute;
- margin-left: 22px;
- margin-bottom: 2px;
- user-select: none;
- pointer-events: none;
+    position: absolute;
+    margin-bottom: 1px;
+    margin-left: 22px;
+    font-size: 10px;
+    font-weight: 700;
+    user-select: none;
+    color: gray;
+    pointer-events: none;
 }
 .speakerVolumeUp{
-    color: gray;
-    font-weight: 600;
-    margin-left: 26px;
-    margin-bottom: 3.5px;
-    font-size: 13px;
     position: absolute;
+    margin-bottom: 3px;
+    margin-left: 26px;
+    color: gray;
+    font-size: 14px;
+    font-weight: 700;
     user-select: none;
     pointer-events: none;
 }
 .speakerVolumeMax{
-    font-size: 15px;
-    margin-bottom: 3px;
-    margin-left: 30px;
-    color: gray;
     position: absolute;
+    margin-bottom: 5px;
+    margin-left: 31px;
+    font-size: 16px;
+    color: gray;
     user-select: none;
-    font-weight: 600;
+    font-weight: 700;
     pointer-events: none;
 }
 
