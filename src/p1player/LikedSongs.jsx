@@ -20,8 +20,8 @@ const LikedSongs = () => {
                     <div onClick={()=>navToSong(el.id)} className={styles.imgBlock}>
                 <img className={styles.img} src={el.img} alt='error'/>
                     </div>
-                <h2>{el.name}</h2>
-                <h2>{el.author}</h2>
+                <h3>{el.name}</h3>
+                <h4>{el.author}</h4>
                 </div>
                 ))}
             </div>
