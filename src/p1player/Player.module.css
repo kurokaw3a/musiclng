@@ -6,9 +6,6 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    @media (max-width:450px) {
-        height:90vh;
-    }
     @media (max-width:376px) {
         height: 100vh;
     }
