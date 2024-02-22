@@ -6,9 +6,6 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    @media (max-width:450px) {
-        height:90vh;
-    }
     @media (max-width:376px) {
         height: 100vh;
     }
@@ -217,7 +214,7 @@
 .speakerVolumeUp{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     margin-left: 26px;
     color: gray;
     font-size: 12px;
@@ -228,7 +225,7 @@
 .speakerVolumeMax{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     margin-left: 31px;
     font-size: 15px;
     color: gray;
@@ -262,29 +259,33 @@
     border-radius: 5px;
 }
 .backIcon{
- width: 50px;
- margin: 10px;
- cursor: pointer;
- position: fixed;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- @media(max-width:450px){
-    display: none;
-}
+    width: 50px;
+    margin: 10px;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @media(max-width:450px){
+        display: none;
+    }
 }
 .backIcon2{
- width: 40px;
- cursor: pointer;
- position: fixed;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- display: none;
- @media(max-width:450px){
-    display: block;
-    width: 35px;
+    width: 40px;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    @media(max-width:450px){
+        display: block;
+        width: 35px;
+        margin: 10px;
+}
+    @media(max-width:391px){
+        margin: 0px;
 }
 }

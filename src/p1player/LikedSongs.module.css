@@ -39,6 +39,7 @@
       margin-top: 20px;
       max-height: 800px;      
       justify-content: center;
+      gap: 20px;
      }
      @media (max-width:391px) {
       max-height: 750px;      
@@ -81,6 +82,9 @@
   user-select: none;
   pointer-events: none;
   @media (max-width:550px) {
-    width: 140px;
+    width: 160px;
+  }
+  @media (max-width:391px) {
+    width: 150px;
   }
 }
