@@ -6,7 +6,7 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    @media (max-width:376px) {
+    @media screen and (max-width:376px) {
         height: 100vh;
     }
 }
@@ -18,7 +18,7 @@
     @media (max-width:450px) {
         margin-top: 0;
     }
-    @media (max-width:376px) and (max-height: 668px) {
+    @media screen and (max-width:376px) and (max-height: 668px) {
         margin-top: 80px;
     }
 }
@@ -31,8 +31,11 @@
     @media(max-width:450px){
      width: 350px;
     }
-    @media(max-width:391px){
+    @media screen and (max-width:391px){
      width: 320px;
+    }
+    @media screen and (max-width:321px) {
+        width: 260px;
     }
 }
 .image{
@@ -47,9 +50,13 @@
         width: 320px;
         height: 320px;
     }
-    @media(max-width:376px) {
+    @media screen and (max-width:376px) {
         width: 300px;
         height: 300px;
+    }
+    @media screen and (max-width:321px) {
+        width: 230px;
+        height: 230px;
     }
 }
 .titleBlock{
@@ -90,12 +97,15 @@
     &:hover{
      accent-color: rgb(113, 113, 113);
     }
-    @media(max-width:450px){
+    @media screen and (max-width:450px){
         width: 350px;
        }
-       @media(max-width:391px){
+       @media screen and (max-width:391px){
         width: 320px;
        }
+       @media screen and (max-width:321px) {
+        width: 260px;
+    }
 }
 .range::-webkit-slider-thumb{
     width: 1px;
@@ -214,7 +224,7 @@
 .speakerVolumeUp{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
     margin-left: 26px;
     color: gray;
     font-size: 12px;
@@ -225,16 +235,13 @@
 .speakerVolumeMax{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
     margin-left: 31px;
     font-size: 15px;
     color: gray;
     user-select: none;
     font-weight: 600;
     pointer-events: none;
-    @media (max-width:450px) {
-        margin-bottom: 1px;
-    }
 }
 
 .volumeRange{
@@ -246,12 +253,15 @@
     outline: none;
     border: 0.5px solid;
     cursor: pointer;
-    @media(max-width:450px){
+    @media screen and (max-width:450px){
         width: 250px;
-       }
-       @media(max-width:391px){
-        width: 220px;
-       }
+    }
+    @media screen and (max-width:391px){
+    width: 220px;
+}
+@media screen and (max-width:321px) {
+    width: 180px;
+}
 }
 .volumeRange::-webkit-slider-thumb{
     width: 1px;
@@ -270,7 +280,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    @media(max-width:450px){
+    @media screen and (max-width:450px){
         display: none;
     }
 }
@@ -283,12 +293,12 @@
     right: 0;
     bottom: 0;
     display: none;
-    @media(max-width:450px){
+    @media screen and (max-width:450px){
         display: block;
         width: 35px;
         margin: 10px;
 }
-    @media(max-width:391px){
+    @media screen and (max-width:391px){
         margin: 0px;
 }
 }
