@@ -146,14 +146,14 @@ const Player = ({variant}) => {
   },[location.pathname])
   return (
     <div className={styles.container}>
-      <img title='back' onClick={navToBack} className={styles.backIcon} src='https://cdn-icons-png.flaticon.com/512/3114/3114883.png' alt='error'/>
-      <img title='back' onClick={navToBack} className={styles.backIcon2} src='https://static.thenounproject.com/png/1394897-200.png' alt='error'/>
+      <img rel='preload' title='back' onClick={navToBack} className={styles.backIcon} src='https://cdn-icons-png.flaticon.com/512/3114/3114883.png' alt='error'/>
+      <img rel='preload' title='back' onClick={navToBack} className={styles.backIcon2} src='https://static.thenounproject.com/png/1394897-200.png' alt='error'/>
       {currentSongStatus === 'pending' && <Loader/>}
       {currentSongStatus === 'success' && 
       <div className={styles.bg}>
         {variant !=='albums' ? 
         <div className={styles.block}>
-          <img className={styles.image} src={currentSong?.img || 'https://play-lh.googleusercontent.com/QovZ-E3Uxm4EvjacN-Cv1LnjEv-x5SqFFB5BbhGIwXI_KorjFhEHahRZcXFC6P40Xg'} alt='error' />
+          <img rel='preload' className={styles.image} src={currentSong?.img || 'https://play-lh.googleusercontent.com/QovZ-E3Uxm4EvjacN-Cv1LnjEv-x5SqFFB5BbhGIwXI_KorjFhEHahRZcXFC6P40Xg'} alt='error' />
           <div className={styles.titleBlock}>
             <h1>{currentSong?.name}</h1>
             <h2>{currentSong?.author}</h2>
@@ -168,29 +168,29 @@ const Player = ({variant}) => {
           <div className={styles.controlsBlock}>
             {variant === "albums" ?
             <div className={styles.controls}>
-            <img className={styles.controlsIconBack} src={playerIcons.nextIcon} alt='error'/>
+            <img className={styles.controlsIconBack} src={playerIcons.nextIcon} alt='error' rel='preload'/>
             </div> : <div title='on spotify' className={styles.controls}>
               <a target='blank' href={currentSong?.spotifyUrl}>
-            <img className={styles.controlsIcon} src={playerIcons.spotifyIcon} alt='error'/>
+            <img className={styles.controlsIcon} src={playerIcons.spotifyIcon} alt='error' rel='preload'/>
               </a>
             </div>
             }
             <div title={isPlaying ? "stop" : "play"} onClick={songHandler} className={styles.controls}>
-            <img className={isPlaying ? styles.controlsIconPause : styles.controlsIconPlay} src={isPlaying ? playerIcons.pauseIcon : playerIcons.playIcon} alt='error'/>
+            <img rel='preload' className={isPlaying ? styles.controlsIconPause : styles.controlsIconPlay} src={isPlaying ? playerIcons.pauseIcon : playerIcons.playIcon} alt='error'/>
             </div>
             {variant === 'albums' ?
             <div className={styles.controls}>
-            <img className={styles.controlsIconNext} src={playerIcons.nextIcon} alt='error'/>
+            <img className={styles.controlsIconNext} src={playerIcons.nextIcon} alt='error' rel='preload'/>
             </div> : <div title={!isLiked ? "like" :"dislike"} onClick={likeSong} className={styles.controls}>
-            <img className={styles.controlsIcon} src={!isLiked ? playerIcons.likeIconTransparent : playerIcons.likeIcon} alt='error'/>
+            <img className={styles.controlsIcon} src={!isLiked ? playerIcons.likeIconTransparent : playerIcons.likeIcon} alt='error' rel='preload'/>
             </div>
             }
           </div>
           <div className={styles.volumeBlock}>
-            <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error'/>
+            <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error' rel='preload'/>
             <input className={styles.volumeRange} type='range' max='100' onChange={volumeHandler} value={trackVolume}/>
             <div className={styles.speakerActive}>
-            <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error'/>
+            <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error' rel='preload'/>
             {trackVolume <= 0 ? '' : 
             <p className={styles.speakerVolumeDown}>)</p>
             }
@@ -206,7 +206,7 @@ const Player = ({variant}) => {
          : likedSongs.map((el, i)=>(
           el.id === id && 
           <div className={styles.block}>
-         <img className={styles.image} src={el?.img || 'https://play-lh.googleusercontent.com/QovZ-E3Uxm4EvjacN-Cv1LnjEv-x5SqFFB5BbhGIwXI_KorjFhEHahRZcXFC6P40Xg'} alt='error' />
+         <img className={styles.image} src={el?.img || 'https://play-lh.googleusercontent.com/QovZ-E3Uxm4EvjacN-Cv1LnjEv-x5SqFFB5BbhGIwXI_KorjFhEHahRZcXFC6P40Xg'} alt='error' rel='preload'/>
          <div className={styles.titleBlock}>
            <h1>{el?.name}</h1>
            <h2>{el?.author}</h2>
@@ -220,20 +220,20 @@ const Player = ({variant}) => {
          </div>
          <div className={styles.controlsBlock}>
            <div onClick={()=>prevSong(i)} className={styles.controls}>
-           <img className={styles.controlsIconBack} src={playerIcons.nextIcon} alt='error'/>
+           <img className={styles.controlsIconBack} src={playerIcons.nextIcon} alt='error' rel='preload'/>
            </div>
            <div title={isPlaying ? "stop" : "play"} onClick={songHandler} className={styles.controls}>
-           <img className={isPlaying ? styles.controlsIconPause : styles.controlsIconPlay} src={isPlaying ? playerIcons.pauseIcon : playerIcons.playIcon} alt='error'/>
+           <img className={isPlaying ? styles.controlsIconPause : styles.controlsIconPlay} src={isPlaying ? playerIcons.pauseIcon : playerIcons.playIcon} alt='error' rel='preload'/>
            </div>
            <div onClick={()=>nextSong(i)} className={styles.controls}>
-           <img className={styles.controlsIconNext} src={playerIcons.nextIcon} alt='error'/>
+           <img className={styles.controlsIconNext} src={playerIcons.nextIcon} alt='error' rel='preload'/>
            </div> 
          </div>
          <div className={styles.volumeBlock}>
-           <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error'/>
+           <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error' rel='preload'/>
            <input className={styles.volumeRange} type='range' max='100' onChange={volumeHandler} value={trackVolume}/>
            <div className={styles.speakerActive}>
-           <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error'/>
+           <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error' rel='preload'/>
            {trackVolume <= 0 ? '' : 
            <p className={styles.speakerVolumeDown}>)</p>
           }

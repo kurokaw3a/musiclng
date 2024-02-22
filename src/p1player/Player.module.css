@@ -232,6 +232,9 @@
     user-select: none;
     font-weight: 600;
     pointer-events: none;
+    @media (max-width:450px) {
+        margin-bottom: 1px;
+    }
 }
 
 .volumeRange{
