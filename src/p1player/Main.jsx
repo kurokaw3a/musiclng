@@ -20,12 +20,14 @@ const Main = () => {
      dispatch(PlayerSlice.actions.clearResult())
     }
 }
-    const navigate = useNavigate()
-    const navToSong = (id)=>{
-     navigate(id)
-    }
-    const navToLikedSongs = ()=>{
-     navigate('likedSongs')
+const navigate = useNavigate()
+const navToSong = (id)=>{
+    navigate(id)
+    dispatch(PlayerSlice.actions.clearResult())
+}
+const navToLikedSongs = ()=>{
+    navigate('likedSongs')
+    dispatch(PlayerSlice.actions.clearResult())
     }
     const likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || []
     return (
