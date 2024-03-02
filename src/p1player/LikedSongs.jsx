@@ -13,7 +13,10 @@ const LikedSongs = () => {
     }
     return (
         <div className={styles.container}>
-            <img title='back' onClick={navToMain} className={styles.backIcon} src='https://cdn-icons-png.flaticon.com/512/3114/3114883.png' alt='error'/>
+                  <img title='back' onClick={navToMain} className={styles.backIcon} src='https://static.thenounproject.com/png/1394897-200.png' alt='error'/>
+            <div className={styles.nav}>
+                  <h2>Понравившеися</h2>
+            </div>
             <div className={styles.likedSongsBlock}>
                 {likedSongs?.map((el)=>(
                 <div key={el.id} className={styles.likedSongBlock}>

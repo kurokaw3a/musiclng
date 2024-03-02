@@ -1,23 +1,21 @@
 .container{
-    display: flex;
-    margin-top: 50px;
+    margin-top: 10px;
     gap: 20px;
     color: white;
     @media screen and (max-width:550px) {
       justify-content: center;
      }
-   }
+    }
+    .nav{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     }
    .backIcon{
-    width: 50px;
-    margin: 10px;
-    cursor: pointer;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-   }
-
+    width: 40px;
+    cursor: pointer;
+  }
    .likedSongsBlock{
     margin: 50px 100px 0px 150px;
     display: flex;

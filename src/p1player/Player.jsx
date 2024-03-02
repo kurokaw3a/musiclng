@@ -60,7 +60,6 @@ const Player = ({variant}) => {
     setTrackProgress(event.target.value)
     setTrackDuration(30-event.target.value)
  }
- console.log(trackProgress);
  const volumeHandler = (event)=>{
  setTrackVolume(event.target.value)
  audioRef.current.volume  = trackVolume / 100

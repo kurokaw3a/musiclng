@@ -3,7 +3,6 @@ import styles from './Main.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getSearchSong } from '../store/PlayerActions';
 import { useNavigate } from 'react-router-dom';
-import Loader from './Loader';
 import { PlayerSlice } from '../store/PlayerSlice';
 
 const Main = () => {
@@ -14,15 +13,13 @@ const Main = () => {
 
     const searchHandler = (event)=>{
      setValue(event.target.value)
-     if(value.trim().length >= 2){
+     if(event.target.value.trim().length > 1 && event.nativeEvent.inputType !== 'deleteContentBackward'){
         dispatch(getSearchSong({songName:value}))
     }
-}
-useEffect(()=>{
-    if(value.length < 1){
-        dispatch(PlayerSlice.actions.clearResult())
+    if(event.target.value.trim().length < 2){
+     dispatch(PlayerSlice.actions.clearResult())
     }
-},[dispatch, value])
+}
     const navigate = useNavigate()
     const navToSong = (id)=>{
      navigate(id)
@@ -34,10 +31,9 @@ useEffect(()=>{
     return (
         <div className={styles.container}>
             <div className={styles.formSearch}>
-             <input className={styles.searchInput} type='text' value={value} onChange={searchHandler} placeholder='song name' />
+             <input className={styles.searchInput} type='text' value={value} onInput={searchHandler} placeholder='что хотите послушать?' />
             {likedSongs.length >= 1 ? <img title='liked songs' onClick={navToLikedSongs} className={styles.likedSongs} src='https://icones.pro/wp-content/uploads/2021/02/icone-de-coeur-gris.png' alt='none'/> : ''}
             </div>
-            {searchStatus === 'pending' && <Loader/>}
                 <div className={styles.resultBlock}>
             {searchResult?.map((el)=>(
             searchStatus === 'success' && 
