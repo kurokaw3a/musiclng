@@ -168,7 +168,6 @@
 .controlsIconPlay{
     width: 40px;
     -webkit-user-select: none;
-    transform: rotate(90deg);
     user-select: none;
     transition: 0.3s;
     pointer-events: none;
@@ -224,7 +223,7 @@
 .speakerVolumeUp{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     margin-left: 26px;
     color: gray;
     font-size: 12px;
@@ -235,13 +234,14 @@
 .speakerVolumeMax{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     margin-left: 31px;
     font-size: 15px;
     color: gray;
     user-select: none;
     font-weight: 600;
     pointer-events: none;
+
 }
 
 .volumeRange{
