@@ -144,9 +144,9 @@ const Player = ({variant}) => {
     audioRef.current.pause()
   },[location.pathname])
   return (
+    <div>
+    <img rel='preload' title='back' onClick={navToBack} className={styles.backIcon} src='https://static.thenounproject.com/png/1394897-200.png' alt='error'/>
     <div className={styles.container}>
-      <img rel='preload' title='back' onClick={navToBack} className={styles.backIcon} src='https://cdn-icons-png.flaticon.com/512/3114/3114883.png' alt='error'/>
-      <img rel='preload' title='back' onClick={navToBack} className={styles.backIcon2} src='https://static.thenounproject.com/png/1394897-200.png' alt='error'/>
       {currentSongStatus === 'pending' && <Loader/>}
       {currentSongStatus === 'success' && 
       <div className={styles.bg}>
@@ -192,10 +192,10 @@ const Player = ({variant}) => {
             <img className={styles.speakerIcon} src={playerIcons.speakerIcon} alt='error' rel='preload'/>
             {trackVolume <= 0 ? '' : 
             <p className={styles.speakerVolumeDown}>)</p>
-            }
+          }
             {trackVolume > 40 && 
             <p className={styles.speakerVolumeUp}>)</p>
-            }
+          }
             {trackVolume > 75 && 
             <p className={styles.speakerVolumeMax}>)</p>
             }
@@ -246,10 +246,11 @@ const Player = ({variant}) => {
          </div>
        </div>
          ))
-       }
+        }
       </div>
     }
     </div>
+        </div>
     )
 };
 
