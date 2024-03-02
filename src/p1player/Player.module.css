@@ -5,14 +5,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
     @media screen and (max-width:450px) {
-        height: 896px;
-    }
-    @media screen and (max-width:391px) {
-        height: 840px;
+        height: 80vh;
     }
     @media screen and (max-width:376px) {
-        height: 650px;
+        height: 90vh;
     }
 }
 .bg{
@@ -24,9 +22,6 @@
     margin-top: 80px;
     @media (max-width:450px) {
         margin-top: 0;
-    }
-    @media screen and (max-width:376px) and (max-height: 668px) {
-        margin-top: 80px;
     }
 }
 .block{
@@ -279,29 +274,12 @@
     border-radius: 5px;
 }
 .backIcon{
-    width: 50px;
+    position: absolute;
+    width: 40px;
     margin: 10px;
     cursor: pointer;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     @media screen and (max-width:450px){
-        display: none;
-    }
-}
-.backIcon2{
-    width: 40px;
-    cursor: pointer;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: none;
-    @media screen and (max-width:450px){
-        display: block;
+        position: static;
         width: 35px;
         margin: 10px;
 }
