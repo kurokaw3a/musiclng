@@ -145,7 +145,7 @@ const Player = ({variant}) => {
   },[location.pathname])
   return (
     <div>
-    <img rel='preload' title='back' onClick={navToBack} className={styles.backIcon} src='https://static.thenounproject.com/png/1394897-200.png' alt='error'/>
+    {/* <img rel='preload' title='back' onClick={navToBack} className={styles.backIcon} src='https://static.thenounproject.com/png/1394897-200.png' alt='error'/> */}
     <div className={styles.container}>
       {currentSongStatus === 'pending' && <Loader/>}
       {currentSongStatus === 'success' && 

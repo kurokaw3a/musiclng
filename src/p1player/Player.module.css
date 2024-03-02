@@ -6,12 +6,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    @media screen and (max-width:450px) {
-        height: 80vh;
-    }
-    @media screen and (max-width:376px) {
-        height: 90vh;
-    }
 }
 .bg{
     width: max-content;
