@@ -1,16 +1,23 @@
-*{
+* {
     -webkit-tap-highlight-color: transparent;
 }
 .container {
     display: flex;
-    height: 100vh;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width:450px) {
+        height: 896px;
+    }
+    @media screen and (max-width:391px) {
+        height: 840px;
+    }
     @media screen and (max-width:376px) {
-        height: 100vh;
+        height: 650px;
     }
 }
 .bg{
+    width: max-content;
+    height: max-content;
     background: rgba(0, 0, 0, 0.521);
     border-radius: 5px;
     box-shadow: 0 0 10px rgb(28, 28, 28);
@@ -212,7 +219,7 @@
 .speakerVolumeDown{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     margin-left: 22px;
     font-size: 9px;
     font-weight: 600;
@@ -299,6 +306,6 @@
         margin: 10px;
 }
     @media screen and (max-width:391px){
-        margin: 0px;
+        margin: 5px;
 }
 }
