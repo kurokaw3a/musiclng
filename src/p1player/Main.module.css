@@ -10,6 +10,10 @@
     display: flex;
     align-items: end;
     background: rgba(0, 0, 0, 0.475);
+    @media screen and (max-width:450px){
+        font-size: 32px;
+        width: 100%;
+    }
 }
 .searchInput{
     font-size: 35px;
@@ -22,8 +26,8 @@
      font-size: 25px;
     }
     @media screen and (max-width:450px){
-     font-size: 32px;
-     width: 100%;
+        font-size: 32px;
+        width: 100%;
     }
 }
 .resultBlock{
