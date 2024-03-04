@@ -61,8 +61,8 @@ const Player = ({variant}) => {
     setTrackDuration(30-event.target.value)
  }
  const volumeHandler = (event)=>{
- setTrackVolume(event.target.value)
- audioRef.current.volume  = trackVolume / 100
+  audioRef.current.volume  = event.target.value / 100
+  setTrackVolume(event.target.value)
 }
 
   useEffect(()=>{
@@ -215,7 +215,7 @@ const Player = ({variant}) => {
              <p>{`0:${trackProgress < 10 ? 0 : ''}${trackProgress}` || "0:00"}</p>
              <p>- 0:{trackDuration}</p>
            </div>
-           <input className={styles.range} type='range' max='30' onClickCapture={progressHandler} onChange={progressHandler} value={trackProgress}/>
+           <input className={styles.range} type='range' max='30' onClickCapture={progressHandler} onInput={progressHandler} value={trackProgress}/>
          </div>
          <div className={styles.controlsBlock}>
            <div onClick={()=>prevSong(i)} className={styles.controls}>
