@@ -22,7 +22,7 @@
     margin-top: 5px;
     width: 15px;
     cursor: pointer;
-    @media screen and (max-width:391px) {
+    @media screen and (max-width:550px) {
       width: 12px;
       margin-top: 7px;
      }
