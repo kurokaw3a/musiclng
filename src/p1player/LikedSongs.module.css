@@ -24,7 +24,6 @@
     cursor: pointer;
     @media screen and (max-width:550px) {
       width: 12px;
-      margin-top: 7px;
      }
   }
    .likedSongsBlock{
