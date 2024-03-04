@@ -26,10 +26,12 @@ const LikedSongs = () => {
     }
     return (
         <div className={styles.container}>
+            <nav className={styles.navigation}>
                   <img title='back' onClick={navToMain} className={styles.backIcon} src='https://icon-library.com/images/white-back-icon/white-back-icon-7.jpg' alt='error'/>
             <div className={styles.nav}>
                   <h2>Понравившеися</h2>
             </div>
+            </nav>
             <div className={styles.likedSongsBlock}>
                 {likedSongs?.map((el)=>(
                 <div key={el.id} className={styles.likedSongBlock}>
@@ -47,12 +49,12 @@ const LikedSongs = () => {
                     <div onClickCapture={closeEditModal} className={styles.backdrop}/>
                      <div className={styles.editBlock}>
                         <div onClickCapture={()=>deleteLikedSong(el.id)} className={styles.editLine}>
-                        <img style={{width:"20px"}} src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699013-icon-27-trash-can-512.png" alt="none" />
+                        <img style={{width:"30px", height:"30px"}} src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699013-icon-27-trash-can-512.png" alt="none" />
                         <p>delete</p>
                         </div>
                         <a style={{textDecoration:"none", color:"white"}} target='blank' href={el.spotifyUrl}>
                         <div className={styles.editLine}>
-                        <img style={{width:"20px"}} src={spotifyIcon} alt="none" />
+                        <img style={{width:"30px", height:"30px"}} src={spotifyIcon} alt="none" />
                         <p>spotify</p>
                         </div>
                         </a>
